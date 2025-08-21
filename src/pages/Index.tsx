@@ -29,21 +29,21 @@ const Index = () => {
           <img 
             src={heroImage}
             alt="Detective investigating empathy"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover animate-fade-in"
           />
         </div>
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="detective-badge mb-4">🕵️ Detective Academy</div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Empathy Detective Agency
+          <div className="detective-badge mb-4 animate-fade-in [animation-delay:0.2s]">🦒🐺 Detective Academy</div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in [animation-delay:0.4s]">
+            Giraffe-Jackal Detective Agency
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90 animate-fade-in [animation-delay:0.6s]">
             Master the art of non-violent communication through real-world case studies. 
             Investigate conflicts, uncover hidden feelings, and learn to build bridges instead of walls.
           </p>
           <Button 
             onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-3"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-3 animate-fade-in [animation-delay:0.8s] hover-scale"
           >
             🔍 Start Investigating
           </Button>
@@ -54,7 +54,7 @@ const Index = () => {
       <section className="py-16 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="case-card text-center">
+            <Card className="case-card text-center animate-fade-in [animation-delay:0.2s] hover-scale">
               <CardContent className="pt-6">
                 <div className="text-4xl mb-3">🎯</div>
                 <h3 className="text-2xl font-bold mb-2">{cases.length}</h3>
@@ -62,7 +62,7 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="case-card text-center">
+            <Card className="case-card text-center animate-fade-in [animation-delay:0.4s] hover-scale">
               <CardContent className="pt-6">
                 <div className="text-4xl mb-3">💝</div>
                 <h3 className="text-2xl font-bold mb-2">100%</h3>
@@ -70,7 +70,7 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="case-card text-center">
+            <Card className="case-card text-center animate-fade-in [animation-delay:0.6s] hover-scale">
               <CardContent className="pt-6">
                 <div className="text-4xl mb-3">🌟</div>
                 <h3 className="text-2xl font-bold mb-2">Practice</h3>
@@ -84,7 +84,7 @@ const Index = () => {
       {/* Features Section */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold mb-6">Why Practice with Case Studies?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Learn non-violent communication through engaging, real-world scenarios that help you develop empathy and conflict resolution skills.
@@ -92,16 +92,16 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in [animation-delay:0.2s]">
               <img 
                 src={communicationImage}
                 alt="People practicing empathetic communication"
-                className="rounded-lg shadow-lg w-full"
+                className="rounded-lg shadow-lg w-full hover-scale"
               />
             </div>
             
             <div className="space-y-8">
-              <div className="flex gap-4">
+              <div className="flex gap-4 animate-fade-in [animation-delay:0.3s]">
                 <div className="bg-primary text-primary-foreground rounded-full p-3 flex-shrink-0">
                   <Search className="h-6 w-6" />
                 </div>
@@ -114,7 +114,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 animate-fade-in [animation-delay:0.5s]">
                 <div className="bg-accent text-accent-foreground rounded-full p-3 flex-shrink-0">
                   <Heart className="h-6 w-6" />
                 </div>
@@ -127,7 +127,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 animate-fade-in [animation-delay:0.7s]">
                 <div className="bg-success text-success-foreground rounded-full p-3 flex-shrink-0">
                   <Users className="h-6 w-6" />
                 </div>
@@ -147,7 +147,7 @@ const Index = () => {
       {/* Cases Section */}
       <section id="cases" className="py-20 px-6 bg-muted/20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold mb-6">🗂️ Case Files</h2>
             <p className="text-xl text-muted-foreground">
               Choose a case to begin your empathy investigation
@@ -155,34 +155,39 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cases.map((caseData) => (
-              <CaseCard
+            {cases.map((caseData, index) => (
+              <div 
                 key={caseData.id}
-                caseNumber={caseData.number}
-                title={caseData.title}
-                description={caseData.description}
-                difficulty={caseData.difficulty}
-                duration={caseData.duration}
-                participants={caseData.participants}
-                evidenceCount={caseData.evidence.length}
-                onViewCase={() => setSelectedCase(caseData)}
-              />
+                className={`animate-fade-in hover-scale`}
+                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+              >
+                <CaseCard
+                  caseNumber={caseData.number}
+                  title={caseData.title}
+                  description={caseData.description}
+                  difficulty={caseData.difficulty}
+                  duration={caseData.duration}
+                  participants={caseData.participants}
+                  evidenceCount={caseData.evidence.length}
+                  onViewCase={() => setSelectedCase(caseData)}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 bg-primary text-primary-foreground">
+      <footer className="py-12 px-6 bg-primary text-primary-foreground animate-fade-in">
         <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4">🕵️ Empathy Detective Agency</h3>
+          <h3 className="text-2xl font-bold mb-4">🦒🐺 Giraffe-Jackal Detective Agency</h3>
           <p className="text-primary-foreground/80 mb-6">
             Solving conflicts through understanding, one case at a time.
           </p>
-          <div className="flex justify-center gap-6 text-sm">
-            <span>🎯 Practice Non-Violent Communication</span>
-            <span>💝 Build Stronger Relationships</span>
-            <span>🌟 Develop Emotional Intelligence</span>
+          <div className="flex justify-center gap-6 text-sm flex-wrap">
+            <span className="hover-scale cursor-default">🎯 Practice Non-Violent Communication</span>
+            <span className="hover-scale cursor-default">💝 Build Stronger Relationships</span>
+            <span className="hover-scale cursor-default">🌟 Develop Emotional Intelligence</span>
           </div>
         </div>
       </footer>
