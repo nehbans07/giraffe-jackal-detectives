@@ -6,7 +6,7 @@ import { CaseCard } from "@/components/CaseCard";
 import { CaseViewer } from "@/components/CaseViewer";
 import { cases, Case } from "@/data/cases";
 import { Search, Heart, Users, BookOpen } from "lucide-react";
-import heroImage from "@/assets/hero-detective.jpg";
+import heroImage from "@/assets/giraffe-jackal-hero.jpg";
 import communicationImage from "@/assets/communication-cases.jpg";
 
 const Index = () => {
@@ -28,7 +28,7 @@ const Index = () => {
         <div className="absolute inset-0 opacity-20">
           <img 
             src={heroImage}
-            alt="Detective investigating empathy"
+            alt="Giraffe and Jackal detectives working together on empathy cases"
             className="w-full h-full object-cover animate-fade-in"
           />
         </div>
